@@ -1,13 +1,27 @@
 <% provide(:title, 'Tasks') %>
 <h1>管理者のタスク一覧</h1>
 
-<div class="main tasks-index">
-  <div class="container">
-    <% @tasks.each do |task| %>
-    <div class="tasks-index-item">
-      <%= task.task_name %>
-      <%= task.note %>
-    </div>
-    <% end %>
+<div row>
+  <div class="col-md-10 col-md-offset-1">
+    <a class="btn btn-lg btn-primary pull-right" href="new-task-path" >タスク新規作成</a>
+    <table class="table table-hover" id="table-tasks">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>作成日</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td>
+              <a id="task_name" href="task_path" ><%= task.task_name %></a>
+            </td>
+            <td><%= task.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   </div>
 </div>

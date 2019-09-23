@@ -3,10 +3,6 @@
 
 /* 共通 */
 
-.navbar{
-  background-color: #008080;
-}
-
 body {
   padding-top: 60px;
 }
@@ -78,6 +74,10 @@ p {
 
 /* ヘッダー */
 
+#header {
+  background-color:teal;
+}
+
 #logo {
   float: left;
   margin-right: 10px;
@@ -90,6 +90,17 @@ p {
 }
 
 #logo:hover {
+  color: #808080;
+  text-decoration: none;
+}
+
+#dropdown-title {
+  background-color:teal;
+  font-weight:bold;
+  color: #FFF;
+}
+
+#dropdown-title:hover{
   color: #808080;
   text-decoration: none;
 }
