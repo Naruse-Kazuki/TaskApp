@@ -3,7 +3,7 @@
 
 <div row>
   <div class="col-md-10 col-md-offset-1">
-    <a class="btn btn-lg btn-primary pull-right" href="new-task-path" >タスク新規作成</a>
+    <%= link_to "タスク新規作成", new_task_path, class: "btn btn-lg btn-primary pull-right" %>
     <table class="table table-hover" id="table-tasks">
       <thead>
         <tr>
@@ -15,10 +15,14 @@
       <tbody>
         <% @tasks.each do |task| %>
           <tr>
-            <td>
-              <a id="task_name" href="task_path" ><%= task.task_name %></a>
-            </td>
+            <td><%= task.task_name%></td>
             <td><%= task.created_at %></td>
+            <td>
+              <% if current_user %>
+                <%= link_to "編集", edit_task_path(task), class: "btn btn-success" %>
+                <%= link_to "削除", task, method: :delete, data: { confirm: "削除します。よろしいですか？" }, class: "btn btn-danger" %>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>
