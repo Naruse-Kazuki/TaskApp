@@ -1,4 +1,5 @@
 class Task < ApplicationRecord
   belongs_to :user
-  validates :note, length:{ maximum: 50 }
+  validates :task_name, presence: true, length:{ maximum: 50 }
+  validates :note, presence: true, length:{ maximum: 500 }
 end

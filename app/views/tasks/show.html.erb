@@ -1,1 +1,39 @@
-<% provide(:title, '@task.task_name') %>
+<% provide(:title, 'task show') %>
+<h1>タスク詳細</h1>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_with(model: @task, local: true) do |f| %>
+        <table class="table" id="table-task">
+            <tbody>
+                <tr>
+                    <th class="active col-md-2" >ID</th>
+                    <td class="col-md-10" ><%= @task.id %></td>
+                </tr>
+                <tr>
+                    <th class="active col-md-2" >名称</th>
+                    <td class="col-md-10" ><%= @task.task_name %></td>
+                </tr>
+                <tr>
+                    <th class="active col-md-2" >詳細</th>
+                    <td class="col-md-10" ><%= @task.note %></td>
+                </tr>
+                <tr>
+                    <th class="active col-md-2" >作成日</th>
+                    <td class="col-md-10" ><%= @task.created_at %></td>
+                </tr>
+                <tr>
+                    <th class="active col-md-2" >更新日</th>
+                    <td class="col-md-10" ><%= @task.updated_at %></td>
+                </tr>
+            </tbody>
+        </table>
+        <div>
+            <% if current_user %>
+            <%= link_to "編集", edit_task_path(@task), class: "btn btn-lg btn-success" %>
+            <%= link_to "削除", @task, method: :delete, data: { confirm: "削除します。よろしいですか？" }, class: "btn btn-lg btn-danger" %>
+            <% end %>
+        </div>
+    <% end %>
+  </div>
+</div>

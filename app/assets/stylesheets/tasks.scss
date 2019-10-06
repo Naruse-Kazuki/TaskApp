@@ -9,3 +9,15 @@
 .btn-edittask {
   margin-top: 10px;
 }
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+#table-task th {
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: center;
+}
