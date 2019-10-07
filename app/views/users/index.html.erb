@@ -1,0 +1,29 @@
+<% provide(:title, 'All Users') %>
+<h1>利用者一覧</h1>
+
+<div row>
+  <div class="col-md-10 col-md-offset-1">
+    <%= will_paginate %>
+    <table class="table table-condensed table-hover" id="table-users">
+      <thead class="pull-left">
+        <tr>
+          <th>名前</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= link_to user.name, user_path(user.id) %></td>
+            <td><%=  %></td>
+            <td>
+              <% if current_user %>
+                <%= link_to "削除", user, method: :delete, data: { confirm: "削除します。よろしいですか？" }, class: "btn btn-danger pull-right" %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate %>
+  </div>
+</div>
