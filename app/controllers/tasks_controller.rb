@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     @task.user = current_user
     if @task.save
       flash[:success] = '新規登録に成功しました。'
-      redirect_to tasks_url
+      redirect_to user_tasks_url
     else
       render :new
     end
@@ -40,6 +40,7 @@ class TasksController < ApplicationController
   
   def destroy
     @task = Task.find(params[:id])
+    @task.user = current_user
     @task.destroy
     redirect_to tasks_url
   end

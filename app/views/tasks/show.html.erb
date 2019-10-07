@@ -16,7 +16,7 @@
                 </tr>
                 <tr>
                     <th class="active col-md-2" >詳細</th>
-                    <td class="col-md-10" ><%= @task.note %></td>
+                    <td class="col-md-10" ><%= raw Rinku.auto_link(@task.note, :all, 'target="_blank"') %></td>
                 </tr>
                 <tr>
                     <th class="active col-md-2" >作成日</th>

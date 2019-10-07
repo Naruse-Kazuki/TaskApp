@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',        '~> 5.1.6'
+gem 'rails-i18n'
 gem 'bcrypt'
 gem 'faker'
 gem 'bootstrap-sass'
@@ -12,6 +13,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'turbolinks',   '~> 5'
 gem 'jbuilder',     '~> 2.5'
+gem 'rinku'
 
 group :development, :test do
   gem 'sqlite3'
