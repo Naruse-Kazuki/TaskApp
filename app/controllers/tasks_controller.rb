@@ -12,15 +12,15 @@ class TasksController < ApplicationController
   end
   
   def new
-    @task = Task.new
+    @task = Task.new(@current_user)
+ 
   end
   
   def create
-    @task = Task.new(task_params)
-    @task.user = current_user
+    @task = Task.new(task_params,@current_user)
     if @task.save
       flash[:success] = '新規登録に成功しました。'
-      redirect_to user_tasks_url
+      redirect_to user_tasks_url @user
     else
       render :new
     end
@@ -57,13 +57,7 @@ class TasksController < ApplicationController
       @user = User.find(params[:user_id])
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
-      end
-    end
+
 
     def correct_user
       redirect_to(root_url) unless current_user?(@user)

@@ -15,6 +15,10 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+    if logged_in?
+      flash[:success] = "すでにログインしています。"
+      redirect_to users_url
+    end
   end
   
   def create
@@ -58,20 +62,13 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "ログインしてください。"
-        redirect_to login_url
-      end
-    end
 
     def correct_user
       redirect_to(root_url) unless current_user?(@user)
     end
     
     def admin_user
-      redirect_to root_url unless current_user.admin?
+      redirect_to(root_url) unless current_user.admin?
     end
     
     def admin_or_correct_user
