@@ -13,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @tasks.each do |task| %>
+        <% @task.each do |task| %>
           <tr>
             <td><%= link_to task.task_name, user_task_path(@user,task.id) %></td>
             <td><%= task.created_at %></td>
