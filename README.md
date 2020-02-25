@@ -16,5 +16,5 @@
 * **password** : password
 
 一般ユーザー
-* **email** : sample-2@email.com
+* **email** : sample-1@email.com
 * **password** : password
