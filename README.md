@@ -1,20 +1,5 @@
-# タスク管理アプリ
-タスクの新規作成・編集・削除ができる、簡単なCRAD機能を用いたアプリです。
+# TaskApp
 
-## 開発環境
-
-* AWS Cloud9
-* Ruby
-* Rails
-* Git
-* Heroku
-
-
-
-管理者ユーザー
-* **email** : sample@email.com
-* **password** : password
-
-一般ユーザー
-* **email** : sample-1@email.com
-* **password** : password
+An application that uses a simple CRAD function that allows you to create, edit, and delete tasks.
+The displayed screen is changed for general users and administrator users.
+Overlook that the commit name is messed up. At that time, I didn't know the correct way to write it, so I will study it in the future.
